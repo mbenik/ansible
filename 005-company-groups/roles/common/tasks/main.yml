@@ -48,11 +48,3 @@
   shell: "gsettings set org.gnome.desktop.background picture-uri {{ img_path }}/Pictures/{{ img_filename }}"
   tags:
     - background
-
-- name: "Create server file into tmp dir"
-  template:
-    src: template.txt.j2
-    dest: "/tmp/{{ item }}.txt"
-  tags:
-    - templating
-  loop: "{{ servers }}"
