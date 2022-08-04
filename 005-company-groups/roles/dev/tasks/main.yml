@@ -17,28 +17,33 @@
     state: directory
   become: yes
 
+# - name: Add GPG key for docker repo
+#   ansible.builtin.get_url:
+#     url: https://download.docker.com/linux/ubuntu/gpg
+#     dest: /etc/apt/keyrings/docker.gpg
+#   become: yes
+
+# https://www.reddit.com/r/ansible/comments/u2vy26/apt_key/
 - name: Add GPG key for docker repo
-  ansible.builtin.get_url:
-    url: https://download.docker.com/linux/ubuntu/gpg
-    dest: /etc/apt/keyrings/docker.gpg
+  ansible.builtin.shell: curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
   become: yes
 
 - name: Add repo to source lists
   shell: 'echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu eoan stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null'
   become: yes
 
-# - name: Install docker, git and docker-compose
-#   apt:
-#     name: 
-#       - docker-ce
-#       - docker-ce-cli
-#       - containerd.io
-#       - docker-compose-plugin
-#       - git
-#       - docker-compose
-#     state: present
-#     update_cache: yes
-#   become: yes
+- name: Install docker, git and docker-compose
+  apt:
+    name: 
+      - docker-ce
+      - docker-ce-cli
+      - containerd.io
+      - docker-compose-plugin
+      - git
+      - docker-compose
+    state: present
+    update_cache: yes
+  become: yes
 
 - name: Ensure group "docker" exists
   ansible.builtin.group:
