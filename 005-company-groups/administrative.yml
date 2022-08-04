@@ -1,0 +1,17 @@
+---
+- name: Administrative playbook
+  hosts: 
+    - administrative_machines
+
+  vars:
+    servers:
+      - galaxy
+      - vulcan
+      - ameros
+
+  roles:
+    - common
+    - office
+
+  
+
