@@ -23,28 +23,29 @@
 
 - name: Install base packages
   apt:
-    name: 
-      - htop
-      - vim
-      - php8.1
-      - kazam
-      - filezilla
-      - bluefish
+    name: "{{ apt_packages }}"
     state: present
     update_cache: yes
   become: yes
   tags:
     - packages
 
+- name: Make sure Pictures dir exists
+  file:
+    path: "{{ img_path }}/Pictures/"
+    state: directory
+  tags:
+    - background
+
 - name: Download bg image
   get_url:
-    url: https://cdn.wallpapersafari.com/55/73/ghY4rc.jpg
-    dest: /home/vagrant/Pictures/bg.jpg
+    url: "{{ bg_img_url }}"
+    dest: "{{ img_path }}/Pictures/{{ img_filename }}"
   tags:
     - background
 
 - name: Set bg image
-  shell: gsettings set org.gnome.desktop.background picture-uri /home/vagrant/Pictures/bg.jpg
+  shell: "gsettings set org.gnome.desktop.background picture-uri {{ img_path }}/Pictures/{{ img_filename }}"
   tags:
     - background
 

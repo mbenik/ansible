@@ -4,6 +4,7 @@
     - ubuntu
 
   vars:
+    img_path: /tmp/
     servers:
       - galaxy
       - vulcan
