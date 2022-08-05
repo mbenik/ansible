@@ -25,7 +25,7 @@
 
 # https://www.reddit.com/r/ansible/comments/u2vy26/apt_key/
 - name: Add GPG key for docker repo
-  ansible.builtin.shell: curl -fsSL https://download.docker.com/linux/ubuntu/gpg | gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+  ansible.builtin.shell: curl -fsSL https://download.docker.com/linux/ubuntu/gpg | gpg --dearmor -o /etc/apt/keyrings/docker.gpg --yes
   become: yes
 
 - name: Add repo to source lists
@@ -40,7 +40,6 @@
       - containerd.io
       - docker-compose-plugin
       - git
-      - docker-compose
     state: present
     update_cache: yes
   become: yes
