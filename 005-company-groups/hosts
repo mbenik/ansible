@@ -1,10 +1,12 @@
 [development_machines]
-#debian
+debian
 ubuntu
 
 [administrative_machines]
+debian
 ubuntu
 
 [management_machines]
-#centos 
+debian
 ubuntu
+#centos 
