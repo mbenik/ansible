@@ -53,9 +53,10 @@
 
 - name: Add users to group "docker"
   ansible.builtin.user:
-    name: "{{ default_docker_group_users }}"
+    name: "{{ item }}"
     groups: docker
     append: yes
+  loop: "{{ default_docker_group_users }}"
   become: yes
 
 
