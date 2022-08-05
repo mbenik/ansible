@@ -1,6 +1,6 @@
 [development_machines]
-#debian
-#ubuntu
+debian
+ubuntu
 centos 
 
 [administrative_machines]

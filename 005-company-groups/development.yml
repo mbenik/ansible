@@ -8,6 +8,6 @@
     img_filename: development.jpg
 
   roles:
-    # - common
+    - common
     - dev
 
