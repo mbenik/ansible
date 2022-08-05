@@ -38,8 +38,8 @@
       - docker-ce
       - docker-ce-cli
       - containerd.io
-      - docker-compose-plugin
       - git
+      - docker-compose
     state: present
     update_cache: yes
   become: yes
