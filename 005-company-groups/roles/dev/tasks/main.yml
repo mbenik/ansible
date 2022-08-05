@@ -25,7 +25,7 @@
 
 # https://www.reddit.com/r/ansible/comments/u2vy26/apt_key/
 - name: Add GPG key for docker repo
-  ansible.builtin.shell: curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+  ansible.builtin.shell: curl -fsSL https://download.docker.com/linux/ubuntu/gpg | gpg --dearmor -o /etc/apt/keyrings/docker.gpg
   become: yes
 
 - name: Add repo to source lists
