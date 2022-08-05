@@ -11,3 +11,11 @@ apt_packages:
   - kazam
   - filezilla
   - bluefish
+
+dnf_packages:
+  - htop
+  - vim
+  - php
+  - filezilla
+  # - kazam
+  # - bluefish
