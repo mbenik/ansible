@@ -1,0 +1,42 @@
+---
+# tasks file for mariadb-conf
+- name: Install phpmyadmin
+  apt:
+    name: 
+      - phpmyadmin
+      - python3-pip
+      - build-essential
+      - libssl-dev
+      - libffi-dev
+    state: present
+    update_cache: yes
+  become: yes
+
+- name: Add phpmyadmin apache.conf to apache
+  lineinfile:
+    path: /etc/apache2/apache2.conf
+    regexp: "^Include.+/phpmyadmin/.+conf$"
+    line: "Include /etc/phpmyadmin/apache.conf"
+    insertafter: EOF
+  notify: restart apache2
+  become: yes
+
+- name: Install PyMySQL
+  ansible.builtin.pip:
+    name: PyMySQL
+    state: present
+    executable: pip3
+  become: yes
+
+- name: Removes anonymous user account for localhost
+  community.mysql.mysql_user:
+    name: ''
+    host: localhost
+    state: absent
+
+- name: Delete test db
+  community.mysql.mysql_db:
+    name: test
+    state: absent
+
+
