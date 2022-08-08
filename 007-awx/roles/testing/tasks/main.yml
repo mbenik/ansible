@@ -3,4 +3,4 @@
 - debug:
     msg: Cafte!!!
 
-- shell: hostname
+# - shell: hostname
