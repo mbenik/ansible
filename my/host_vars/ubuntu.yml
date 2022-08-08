@@ -1,0 +1,2 @@
+ansible_host: 172.31.23.84
+ansible_become_password: '{{ ubuntu_passwd }}'

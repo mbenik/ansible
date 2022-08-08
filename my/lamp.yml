@@ -1,0 +1,15 @@
+- name: lamp playbook
+  hosts: 
+    - admin
+
+  vars:
+    packages:
+      - apache2
+      - php8.0
+      - php8.0-mysql
+      - mariadb-server
+      - mariadb-client
+  
+  roles: 
+   - lamp
+   - mariadb-conf

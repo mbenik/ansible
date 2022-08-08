@@ -1,0 +1,12 @@
+---
+- name: development playbook
+  hosts: 
+    - dev 
+  vars:
+     servers:
+        - galaxy
+        - vulcan
+        - ameros
+  roles:
+    - common
+    - dev

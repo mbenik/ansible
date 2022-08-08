@@ -1,0 +1,8 @@
+---
+# handlers file for mariadb-conf
+
+- name: start phpadmin
+  ansible.builtin.service:
+    name: mysqld
+    state: started
+  become: yes

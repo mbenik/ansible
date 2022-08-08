@@ -1,0 +1,9 @@
+[linux]
+debian ansible_host=172.31.20.50 ansible_user=cloud_user ansible_connection=ssh ansible_become_password='{{ debian_passwd }}'
+ubuntu ansible_host=172.31.23.84 ansible_user=cloud_user ansible_connection=ssh ansible_become_password='{{ ubuntu_passwd }}' 
+
+[win]
+centos ansible_host=172.31.24.154 ansible_user=cloud_user ansible_connection=ssh ansible_become_password='{{ centos_passwd }}'
+
+[all:vars]
+ansible_become_password=iiiheslo123!

@@ -1,0 +1,16 @@
+---
+- name: test playbook
+  hosts: 
+    - debian
+    - centos 
+    - ubuntu
+  vars:
+          # img_filename: playbook
+     servers:
+        - galaxy
+        - vulcan
+        - ameros
+     hallo: hallo
+  
+  roles:
+    - common

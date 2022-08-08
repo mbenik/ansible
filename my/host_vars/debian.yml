@@ -1,0 +1,2 @@
+ansible_host: 172.31.20.50 
+ansible_become_password: '{{ debian_passwd }}'

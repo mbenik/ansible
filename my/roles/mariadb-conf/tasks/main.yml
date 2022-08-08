@@ -1,0 +1,21 @@
+---
+# tasks file for mariadb-conf
+#
+- name: Install phpadmin
+  apt:
+      name: 
+        - phpmyadmin
+      state: present
+      update_cache: yes
+     #notify:
+     #- start phpadmin
+  tags:
+        - phpadmin
+  become: yes
+
+- name: apache edit
+  ansible.builtin.lineinfile:
+    path: /etc/apache2/apache2.conf
+    #regexp: '^SELINUX='
+    line: /etc/phpmyadmin/apache.conf
+  become: yes

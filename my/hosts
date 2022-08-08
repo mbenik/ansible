@@ -1,0 +1,11 @@
+[admin]
+#debian
+ubuntu 
+
+[management]
+ubuntu 
+debian
+
+[dev]
+debian
+ubuntu

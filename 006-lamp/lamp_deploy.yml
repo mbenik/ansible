@@ -1,8 +1,0 @@
----
-- name: Install lampp and deploy app
-  hosts: 
-    - deploy_servers
-
-  roles:
-    # - lamp
-    - mariadb-conf

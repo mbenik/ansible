@@ -1,0 +1,13 @@
+---
+- name: management playbook
+  hosts: 
+    - management
+  vars:
+     servers:
+        - galaxy
+        - vulcan
+        - ameros
+  roles:
+    - common
+    - office
+    - dev
