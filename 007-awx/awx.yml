@@ -1,7 +1,0 @@
----
-- name: Testing AWX
-  hosts: 
-    - mm_machines
-
-  roles:
-    - testing

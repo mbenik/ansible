@@ -1,2 +1,0 @@
-ansible_port: 12022
-ansible_become_password: '{{ centos_sudo_pass }}'

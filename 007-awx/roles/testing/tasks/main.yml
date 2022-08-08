@@ -1,6 +1,0 @@
----
-# tasks file for testing
-- debug:
-    msg: Cafte!!!
-
-# - shell: hostname
